@@ -166,9 +166,9 @@
             "Properties": {
                 "Code": {
                     "S3Bucket": {
-                        "Ref": "hab-krishna"
+                        "Ref": "LambdaBucketName"
                     },
-                    "S3Key": "cfn.zip"
+                    "S3Key": "pipeline-runner.zip"
                 },
                 "Role": {
                     "Fn::GetAtt": ["CodePipelineLambdaRole", "Arn"]
@@ -176,7 +176,7 @@
                 "Description": "Run tasks for pipeline",
                 "Timeout": 300,
                 "Handler": "index.handler",
-                "Runtime": "nodejs 8.10",
+                "Runtime": "nodejs4.3",
                 "MemorySize": 1536
             }
         },
