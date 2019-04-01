@@ -13,6 +13,10 @@ exports.handler = function(event, context) {
     var pkgOrigin = "$(awk -F= '/^pkg_origin/{print $2}' /tmp/SourceOutput/plan.sh)";
     var pkgName = "$(awk -F= '/^pkg_name/{print $2}' /tmp/SourceOutput/plan.sh)";
     var pkgIdent = pkgOrigin + "/" + pkgName;
+    console.log(userParams.githubToken);
+    console.log(pkgOrigin);
+    console.log("see");
+    console.log(userParams);
     switch (userParams.command) {
         case "Stage-SourceCode":
             var s3Location = event["CodePipeline.job"]["data"]["inputArtifacts"][0]["location"]["s3Location"];
