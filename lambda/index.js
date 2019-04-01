@@ -25,7 +25,7 @@ exports.handler = function(event, context) {
             cmds.push("rm -rf /tmp/SourceOutput && mkdir /tmp/SourceOutput && unzip /tmp/SourceOutput.zip -d /tmp/SourceOutput");
             break;
         case "Initialize-Habitat":
-            cmds.push("export HAB_AUTH_TOKEN=" + userParams.githubToken);
+            cmds.push("export HAB_AUTH_TOKEN=" + userParams.habitattoken);
             cmds.push("export HAB_ORIGIN=" + pkgOrigin);
             cmds.push("hab origin key generate " + pkgOrigin);
             cmds.push("hab origin key upload " + pkgOrigin);
