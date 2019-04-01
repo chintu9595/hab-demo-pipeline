@@ -52,7 +52,7 @@ exports.handler = function(event, context) {
         case "Publish-HabitatPackage":
             var pkgArtifact = "$(awk -F= '/^pkg_artifact/{print $2}' /tmp/pipeline/hab/results/last_build.env)";
             cmds.push("cd /tmp/pipeline/hab/results");
-            cmds.push("export HAB_AUTH_TOKEN=" + userParams.githubToken);
+            cmds.push("export HAB_AUTH_TOKEN=" + userParams.habitattoken);
             cmds.push("hab pkg upload " + pkgArtifact);
             break;
         default:
