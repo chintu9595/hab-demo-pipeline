@@ -13,7 +13,8 @@ exports.handler = function(event, context) {
     var pkgOrigin = "$(awk -F= '/^pkg_origin/{print $2}' /tmp/SourceOutput/plan.sh)";
     var pkgName = "$(awk -F= '/^pkg_name/{print $2}' /tmp/SourceOutput/plan.sh)";
     var pkgIdent = pkgOrigin + "/" + pkgName;
-    console.log(userParams.githubToken);
+    var token = "_Qk9YLTEKYmxkci0yMDE3MDkyNzAyMzcxNApibGRyLTIwMTcwOTI3MDIzNzE0Cms5NFZxY1dXMVNidWxONGI1aDU4VWhuVS9HSk5GckZpCmN0R0Nxbm9nZWptcWNBWjN1dnJ6aEM1K05nazJBaGlsRUY3eVgvbDZHNmZuUkNrUg==";
+    console.log(userParams.habitattoken);
     console.log(pkgOrigin);
     console.log("see");
     console.log(userParams);
@@ -25,7 +26,7 @@ exports.handler = function(event, context) {
             cmds.push("rm -rf /tmp/SourceOutput && mkdir /tmp/SourceOutput && unzip /tmp/SourceOutput.zip -d /tmp/SourceOutput");
             break;
         case "Initialize-Habitat":
-            cmds.push("export HAB_AUTH_TOKEN=" + userParams.habitattoken);
+            cmds.push("export HAB_AUTH_TOKEN=" + token);
             cmds.push("export HAB_ORIGIN=" + pkgOrigin);
             cmds.push("hab origin key generate " + pkgOrigin);
             cmds.push("hab origin key upload " + pkgOrigin);
